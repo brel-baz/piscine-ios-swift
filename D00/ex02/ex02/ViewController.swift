@@ -37,7 +37,10 @@ class ViewController: UIViewController {
     {
         if label.text != "" && sender.tag != 16  && sender.tag != 17 && sender.tag != 11
         {
-            previousNumber = Double(label.text!)!
+            if label.text != "+" && label.text != "-" && label.text != "*" && label.text != "/"
+            {
+                previousNumber = Double(label.text!)!
+            }
             if sender.tag == 12
             {
                 label.text  = "+"
@@ -62,14 +65,17 @@ class ViewController: UIViewController {
             if operation == 12
             {
                 label.text = String(previousNumber + numberOnScreen)
+                previousNumber = previousNumber + numberOnScreen
             }
             else if operation == 13
             {
                 label.text = String(previousNumber - numberOnScreen)
+                previousNumber = previousNumber - numberOnScreen
             }
             else if operation == 14
             {
                 label.text = String(previousNumber * numberOnScreen)
+                previousNumber = previousNumber * numberOnScreen
             }
             else if operation == 15
             {
@@ -83,6 +89,7 @@ class ViewController: UIViewController {
                 else
                 {
                     label.text = String(previousNumber / numberOnScreen)
+                    previousNumber = previousNumber / numberOnScreen
                 }
             }
         }
