@@ -37,3 +37,24 @@ for _ in deck {
     deck.shuffle();
     print("shuffle  : \(deck)");
 }
+
+print("\u{001B}[1;32m\n- Board\u{001B}[0m\n");
+
+var sortedDeck = Deck(sorted: true);
+var shuffledDeck = Deck(sorted: false);
+
+print("sorted Deck   : \(sortedDeck)\n");
+print("shuffled Deck : \(shuffledDeck)\n");
+
+var tmp: Card;
+
+for _ in 1...3 {
+    print("will be drawed    : \(shuffledDeck.cards[0])");
+    tmp = shuffledDeck.draw()!;
+    print("have been drawed  : \(tmp)");
+    print("moved now in outs : \(shuffledDeck.outs[shuffledDeck.outs.count - 1])");
+    print("is in cards ?     : \(shuffledDeck.cards.contains(tmp))");
+    shuffledDeck.fold(c: tmp);
+    print("moved in discards : \(shuffledDeck.discards[shuffledDeck.discards.count - 1])");
+    print("is in outs ?      : \(shuffledDeck.outs.contains(tmp))\n");
+}
