@@ -27,3 +27,13 @@ print("\(Deck.allClubs.count) Clubs    : \(Deck.allClubs)");
 print("\(Deck.allDiamonds.count) Diamonds : \(Deck.allDiamonds)");
 print("\(Deck.allHearts.count) Hearts   : \(Deck.allHearts)\n");
 print("\(Deck.allCards.count) Cards    : \(Deck.allCards)");
+
+
+print("\u{001B}[1;32m\n- Shuffle\u{001B}[0m\n");
+var deck = Deck.allCards;
+
+print("original : \(deck)\n");
+for _ in deck {
+    deck.shuffle();
+    print("shuffle  : \(deck)");
+}
